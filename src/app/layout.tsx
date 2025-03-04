@@ -9,6 +9,16 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "IoT-X - Intelligent IoT Solutions",
   description: "Transform your business with our innovative IoT solutions. Smart home automation, industrial IoT, and smart city solutions.",
+  icons: {
+    icon: [
+      {
+        url: '/iotx-logo.svg',
+        type: 'image/svg+xml',
+      }
+    ],
+    shortcut: '/iotx-logo.svg',
+    apple: '/iotx-logo.svg',
+  },
 };
 
 export default function RootLayout({
@@ -18,6 +28,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="/iotx-logo.svg" />
+      </head>
       <body className={inter.className}>
         <Header />
         <main>
