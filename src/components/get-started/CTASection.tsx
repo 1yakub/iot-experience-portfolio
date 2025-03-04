@@ -105,7 +105,7 @@ export default function CTASection() {
                   size="lg"
                   darkBg
                   icon="chat"
-                  customBgColor="#0984E3"
+                  className="bg-[#0984E3] hover:bg-[#0972C3]"
                 >
                   Schedule Consultation
                 </CTAButton>
@@ -128,7 +128,6 @@ export default function CTASection() {
                   size="lg"
                   darkBg
                   icon="explore"
-                  customBgColor="#00B894"
                 >
                   Explore Services
                 </CTAButton>

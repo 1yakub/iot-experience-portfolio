@@ -11,6 +11,7 @@ interface CTAButtonProps {
   className?: string
   darkBg?: boolean
   icon?: 'arrow' | 'calendar' | 'chat' | 'explore'
+  customBgColor?: string
 }
 
 const CTAButton = ({ 
@@ -21,12 +22,15 @@ const CTAButton = ({
   children, 
   className = '',
   darkBg = false,
-  icon = 'arrow'
+  icon = 'arrow',
+  customBgColor
 }: CTAButtonProps) => {
   const baseStyles = "neobrutalist group inline-flex items-center justify-center transition-all duration-300"
   
   const variantStyles = {
-    primary: `bg-[#0984E3] border-[#2D3436] text-white hover:bg-[#0972C3] hover:scale-[1.02] hover:-translate-y-0.5`,
+    primary: customBgColor 
+      ? `bg-[${customBgColor}] border-[#2D3436] text-white hover:opacity-90 hover:scale-[1.02] hover:-translate-y-0.5`
+      : `bg-[#0984E3] border-[#2D3436] text-white hover:bg-[#0972C3] hover:scale-[1.02] hover:-translate-y-0.5`,
     secondary: `bg-white text-[#2D3436] border-[#2D3436] hover:bg-gray-50 hover:scale-[1.02] hover:-translate-y-0.5`,
     outline: `bg-transparent border-white text-white hover:bg-white/10 hover:scale-[1.02] hover:-translate-y-0.5`,
     gradient: `bg-gradient-to-r from-[#0984E3] to-[#00B894] text-white border-[#2D3436] hover:from-[#0972C3] hover:to-[#00A583] hover:scale-[1.02] hover:-translate-y-0.5`
@@ -118,6 +122,7 @@ const CTAButton = ({
           ${sizeStyles[size]}
           ${widthStyle}
           ${className}
+          ${customBgColor && variant === 'primary' ? `!bg-[${customBgColor}]` : ''}
         `}
       >
         {children}
