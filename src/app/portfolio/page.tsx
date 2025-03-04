@@ -10,7 +10,7 @@ export default function Portfolio() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <HeroSection activeCategory={activeCategory} onCategoryChange={setActiveCategory} />
+      <HeroSection activeCategory={activeCategory} setActiveCategory={setActiveCategory} />
       <ProjectsGrid activeCategory={activeCategory} />
       <CTASection />
     </div>
