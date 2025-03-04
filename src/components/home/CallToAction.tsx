@@ -1,7 +1,26 @@
 import { motion } from 'framer-motion'
 import CTAButton from '../shared/CTAButton'
+import { useState, useEffect } from 'react'
 
 const CallToAction = () => {
+  const [dimensions, setDimensions] = useState({ width: 1000, height: 1000 })
+  const [isClient, setIsClient] = useState(false)
+
+  useEffect(() => {
+    setIsClient(true)
+    const updateDimensions = () => {
+      setDimensions({
+        width: window.innerWidth,
+        height: window.innerHeight
+      })
+    }
+    
+    updateDimensions()
+    window.addEventListener('resize', updateDimensions)
+    
+    return () => window.removeEventListener('resize', updateDimensions)
+  }, [])
+
   return (
     <section className="py-20 bg-[#2D3436] relative overflow-hidden">
       {/* Background Effects */}
@@ -12,13 +31,13 @@ const CallToAction = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
       >
-        {[...Array(3)].map((_, i) => (
+        {isClient && [...Array(3)].map((_, i) => (
           <motion.div
             key={i}
             className="absolute w-96 h-96 bg-gradient-to-r from-[#0984E3] to-[#00B894] rounded-full opacity-10 blur-3xl"
             animate={{
-              x: [Math.random() * window.innerWidth, Math.random() * window.innerWidth],
-              y: [Math.random() * window.innerHeight, Math.random() * window.innerHeight],
+              x: [Math.random() * dimensions.width, Math.random() * dimensions.width],
+              y: [Math.random() * dimensions.height, Math.random() * dimensions.height],
               scale: [1, 1.5, 1],
             }}
             transition={{
@@ -60,7 +79,7 @@ const CallToAction = () => {
               Join hundreds of businesses that have already revolutionized their operations with our IoT solutions. Get started today and see the difference tomorrow.
             </motion.p>
 
-            <motion.div 
+            <motion.div
               className="flex flex-wrap justify-center gap-6"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
