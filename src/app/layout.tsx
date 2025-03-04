@@ -12,12 +12,12 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
-        url: '/iotx-logo.svg',
+        url: '/x-logo.svg',
         type: 'image/svg+xml',
       }
     ],
-    shortcut: '/iotx-logo.svg',
-    apple: '/iotx-logo.svg',
+    shortcut: '/x-logo.svg',
+    apple: '/x-logo.svg',
   },
 };
 
@@ -29,7 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="/iotx-logo.svg" />
+        <link rel="icon" href="/x-logo.svg" />
       </head>
       <body className={inter.className}>
         <Header />
